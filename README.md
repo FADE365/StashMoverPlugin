@@ -1,4 +1,4 @@
-# Main branch is 1.20.6.
+# Main branch is 1.24.4.
 Change it in gradle.properties, refresh gradle, and build to have another version of mc.
 
 
