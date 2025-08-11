@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.2-SNAPSHOT'
+    id 'fabric-loom' version '1.7.4'
     id 'maven-publish'
 }
 
@@ -38,10 +38,11 @@ dependencies {
     //mojmap + parchment mappings
     mappings loom.layered() {
         officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-1.20.1:2023.07.30@zip")
+        parchment("org.parchmentmc.data:parchment-1.21.4:2025.02.16@zip")
     }
 
-    modCompileOnly files("libs/baritone-api-fabric-${project.minecraft_version}.jar")
+    def baritoneVersion = project.minecraft_version.startsWith("1.21") ? "1.21" : project.minecraft_version
+    modCompileOnly files("libs/baritone-api-fabric-${baritoneVersion}.jar")
 
     //rusherhack api
     rusherhackApi "org.rusherhack:rusherhack-api:${project.minecraft_version}-SNAPSHOT"

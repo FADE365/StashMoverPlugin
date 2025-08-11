@@ -227,7 +227,7 @@ public class StashMover extends ToggleableModule {
                         if (!mc.level.getBlockState(BlockPos.containing(chamber)).getValue(TrapDoorBlock.OPEN)) {
                             float[] rotations = RotationUtils.getRotations(chamber);
 
-                            mc.player.connection.send(new ServerboundMovePlayerPacket.Rot(rotations[0], rotations[1], mc.player.onGround()));
+                            mc.player.connection.send(new ServerboundMovePlayerPacket.Rot(rotations[0], rotations[1], mc.player.onGround(), mc.player.horizontalCollision));
                             RusherHackAPI.interactions().useBlock(BlockPos.containing(chamber), InteractionHand.MAIN_HAND, true, false);
 
                             ticksPassed = -10;
@@ -727,7 +727,7 @@ public class StashMover extends ToggleableModule {
         float[] rotations = RotationUtils.getRotations(pos.getCenter());
 
         RusherHackAPI.getRotationManager().updateRotation(pos);
-        mc.player.connection.send(new ServerboundMovePlayerPacket.Rot(rotations[0], rotations[1], mc.player.onGround()));
+        mc.player.connection.send(new ServerboundMovePlayerPacket.Rot(rotations[0], rotations[1], mc.player.onGround(), mc.player.horizontalCollision));
         RusherHackAPI.interactions().useBlock(pos, InteractionHand.MAIN_HAND, true, false);
     }
 
