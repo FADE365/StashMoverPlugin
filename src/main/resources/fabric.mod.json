@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "stashmover-addon",
+  "version": "${version}",
+  "name": "StashMover Addon",
+  "description": "Meteor addon version of the StashMover plugin.",
+  "authors": [
+    "xyzbtw"
+  ],
+  "environment": "client",
+  "entrypoints": {
+    "meteor": [
+      "dev.xyzbtw.StashMoverAddon"
+    ]
+  },
+  "custom": {
+    "meteor-client:color": "255,25,25"
+  },
+  "depends": {
+    "java": ">=21",
+    "minecraft": ["${mc_version}"],
+    "meteor-client": "*"
+  }
+}
